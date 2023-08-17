@@ -63,7 +63,6 @@ public class CustomerView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(1024, 768));
-        setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(200, 768));
@@ -96,7 +95,7 @@ public class CustomerView extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(254, 220, 24));
         jButton5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("EXIT");
+        jButton5.setText("ВЫХОД");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -106,7 +105,7 @@ public class CustomerView extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(254, 220, 24));
         jButton6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setText("CODING OF MATERIALS");
+        jButton6.setText("ЗАЯВКА НА КОД..");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -116,7 +115,7 @@ public class CustomerView extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(254, 220, 24));
         jButton7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jButton7.setText("CREATE A REQUEST");
+        jButton7.setText("СОЗДАТЬ ЗАЯВКУ");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -126,7 +125,7 @@ public class CustomerView extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(254, 220, 24));
         jButton8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jButton8.setForeground(new java.awt.Color(0, 0, 0));
-        jButton8.setText("ORDER STATUS");
+        jButton8.setText("СТАТУС ЗАКАЗА");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -168,11 +167,11 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ORDERING OF SPARE PARTS AND MATERIALS");
+        jLabel1.setText("ЗАЯВКА НА ЗАКАЗ ЗАПАСНЫХ ЧАСТЕЙ И МАТЕРИАЛОВ");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("SAP-CODE");
+        jLabel2.setText("SAP-КОД");
 
         idTxt.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         idTxt.setMaximumSize(new java.awt.Dimension(4, 20));
@@ -186,7 +185,7 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("STOCK AVAILABILITY");
+        jLabel3.setText("НАЛИЧИЕ НА СКЛАДЕ");
 
         idTxt1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         idTxt1.setMaximumSize(new java.awt.Dimension(4, 20));
@@ -200,7 +199,7 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("QUANTITY");
+        jLabel5.setText("КОЛИЧЕСТВО");
 
         idTxt3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         idTxt3.setMaximumSize(new java.awt.Dimension(4, 20));
@@ -214,11 +213,11 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("COMMENTS ON THE ORDER");
+        jLabel8.setText("КОММЕНТАРИИ К ЗАКАЗУ");
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("PRODUCT/MATERIAL NAME");
+        jLabel9.setText("НАИМЕНОВАНИЕ МАТЕРИАЛА");
 
         idTxt6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         idTxt6.setMaximumSize(new java.awt.Dimension(4, 20));
@@ -232,7 +231,7 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("UNIT PRICE");
+        jLabel10.setText("ЦЕНА ЗА ЕДИНИЦУ");
 
         idTxt7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         idTxt7.setMaximumSize(new java.awt.Dimension(4, 20));
@@ -248,19 +247,19 @@ public class CustomerView extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("UNITS OF MEASUREMENT");
+        jLabel11.setText("ЕДИНИЦА ИЗМЕРЕНИЯ");
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("REGION");
+        jLabel12.setText("СТАНОК / УЧАСТОК");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jButton1.setText("ADD");
+        jButton1.setText("ДОБАВИТЬ");
 
         jButton4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jButton4.setText("DELETE");
+        jButton4.setText("УДАЛИТЬ");
 
         usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -290,10 +289,10 @@ public class CustomerView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(usersTable);
 
         jButton9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jButton9.setText("LOADING");
+        jButton9.setText("ЗАГРУЗИТЬ");
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jButton2.setText("GUIDE");
+        jButton2.setText("СПРАВКА");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -315,7 +314,6 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -323,12 +321,13 @@ public class CustomerView extends javax.swing.JFrame {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton9))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(140, 140, 140)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,10 +338,9 @@ public class CustomerView extends javax.swing.JFrame {
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(idTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(idTxt6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(77, 77, 77)
+                                            .addComponent(idTxt6, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9))
+                                        .addGap(74, 74, 74)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(idTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(idTxt7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -365,9 +363,9 @@ public class CustomerView extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel11)
-                                .addGap(1, 1, 1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
