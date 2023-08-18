@@ -5,6 +5,17 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Егор
@@ -32,12 +43,12 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         CloseLbl = new javax.swing.JLabel();
         LoginLbl = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        userTxt = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -88,11 +99,9 @@ public class Login extends javax.swing.JFrame {
         LoginLbl.setForeground(new java.awt.Color(0, 0, 0));
         LoginLbl.setText("LOGIN");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField1.setText("jTextField1");
+        userTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
+        passwordTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -110,8 +119,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton2.setText("CLEAR");
+        clearBtn.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        clearBtn.setText("CLEAR");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,9 +142,9 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(loginBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                                .addComponent(jButton2))
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(clearBtn))
+                            .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(userTxt, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(51, 51, 51))
         );
         jPanel2Layout.setVerticalGroup(
@@ -147,16 +156,16 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(CloseLbl))
                 .addGap(143, 143, 143)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginBtn)
-                    .addComponent(jButton2))
+                    .addComponent(clearBtn))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -181,8 +190,11 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        new AdminSetting().setVisible(true);
-        this.setVisible(false);
+//        new AdminSetting().setVisible(true);
+//        this.setVisible(false);
+            new CustomerView().start();
+            this.dispose();
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void CloseLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseLblMouseClicked
@@ -228,14 +240,14 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CloseLbl;
     private javax.swing.JLabel LoginLbl;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton clearBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loginBtn;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }
