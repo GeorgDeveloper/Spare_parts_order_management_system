@@ -5,6 +5,7 @@
  */
 package spare_parts_order_management_system;
 
+import java.sql.SQLException;
 import view.Hello_menu;
 
 /**
@@ -16,9 +17,8 @@ public class Spare_parts_order_management_system {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Hello_menu hello = new Hello_menu();
-        hello.start();
+    public static void main(String[] args) throws SQLException {
+        new Hello_menu().start();
     }
     
 }
