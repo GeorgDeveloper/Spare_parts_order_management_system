@@ -5,6 +5,9 @@
  */
 package view;
 
+import conect.ConnectDb;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -114,44 +117,29 @@ public class Hello_menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        Hello_menu Mysplash;
-//        Mysplash = new Hello_menu();
-//        Mysplash.setVisible(true);
-//        try {
-//            for (int i = 0; i <= 100; i++) {
-//                Thread.sleep(40);
-//                Mysplash.Myprogress.setValue(i);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        new Hello_menu().setVisible(true);
-//        Mysplash.dispose();
-//    }
-    
-    public  void start() {
+    public void start() throws SQLException {
         Hello_menu Mysplash = new Hello_menu();
         Mysplash.setVisible(true);
-        try {
-            for (int i = 0; i <= 100; i++) {
-                Thread.sleep(40);
-                Mysplash.Myprogress.setValue(i);
+    
+            if (new ConnectDb().firstConnect()) {
+                try {
+                    for (int i = 0; i <= 100; i++) {
+                        Thread.sleep(40);
+                        Mysplash.Myprogress.setValue(i);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                new Login().setVisible(true);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        new Login().setVisible(true);
-        
-        
+            else{
+               JOptionPane.showMessageDialog(this, "Перезапустите программу");
+               System.exit(0);
+            }
+
         Mysplash.dispose();
     }
-    
-   
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar Myprogress;
