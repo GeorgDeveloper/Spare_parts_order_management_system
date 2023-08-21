@@ -5,9 +5,9 @@
  */
 package view;
 
+import conect.ConnectDb;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -113,14 +113,19 @@ public class Login extends javax.swing.JFrame {
 
         loginBtn.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         loginBtn.setText("LOGIN");
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginBtnMouseClicked(evt);
             }
         });
 
         clearBtn.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         clearBtn.setText("CLEAR");
+        clearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -188,19 +193,45 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
-//        new AdminSetting().setVisible(true);
-//        this.setVisible(false);
-            new CustomerView().start();
-            this.dispose();
-
-    }//GEN-LAST:event_loginBtnActionPerformed
-
     private void CloseLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseLblMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_CloseLblMouseClicked
+
+    private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
+        // TODO add your handling code here:
+        ConnectDb con = new ConnectDb();
+        String userType = con.validUser(userTxt.getText(), passwordTxt.getText());
+        if (con.isHasNext()) {
+            switch (userType) {
+                case ("admin"):
+                    new AdminSetting().start();
+                    this.dispose();
+                    break;
+                case ("customer"):
+                    new CustomerView().start();
+                    this.dispose();
+                    break;
+//                    case ():
+//                        break;
+//                    case ():
+//                        break;
+//                    case ():
+//                        break;
+//                    case ():
+//                        break;
+                }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "WRONG USER ID OR PASSWORD");
+        }
+    }//GEN-LAST:event_loginBtnMouseClicked
+
+    private void clearBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseClicked
+        // TODO add your handling code here:
+        userTxt.setText("");
+        passwordTxt.setText("");
+    }//GEN-LAST:event_clearBtnMouseClicked
 
     /**
      * @param args the command line arguments
