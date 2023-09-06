@@ -5,7 +5,15 @@
  */
 package view;
 
+import conect.WorkingWithDbUsers;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -17,8 +25,12 @@ public class AdminSetting extends javax.swing.JFrame {
      * Creates new form AdminSetting
      */
     public AdminSetting() {
+        
         initComponents();
+        udateTable();
     }
+
+    //WorkingWithDbUsers wwDB = new WorkingWithDbUsers();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,8 +49,6 @@ public class AdminSetting extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        idTxt = new javax.swing.JTextField();
-        nameTxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         mailTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -49,6 +59,8 @@ public class AdminSetting extends javax.swing.JFrame {
         deleteBtn = new javax.swing.JButton();
         typeBox = new javax.swing.JComboBox<>();
         userViewLabel = new javax.swing.JLabel();
+        idTxt = new javax.swing.JTextField();
+        nameTxt = new javax.swing.JTextField();
         usersTablePanel = new javax.swing.JScrollPane();
         usersTable = new javax.swing.JTable();
 
@@ -130,25 +142,6 @@ public class AdminSetting extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Type");
 
-        idTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        idTxt.setMaximumSize(new java.awt.Dimension(4, 20));
-        idTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        idTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        idTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTxtActionPerformed(evt);
-            }
-        });
-
-        nameTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        nameTxt.setMaximumSize(new java.awt.Dimension(55, 20));
-        nameTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        nameTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTxtActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Mail");
@@ -173,23 +166,57 @@ public class AdminSetting extends javax.swing.JFrame {
 
         addBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         addBtn.setText("ADD");
+        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addBtnMouseClicked(evt);
+            }
+        });
 
         updateBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         updateBtn.setText("UPDATE");
+        updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateBtnMouseClicked(evt);
+            }
+        });
 
         clearBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         clearBtn.setText("CLEAR");
+        clearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearBtnMouseClicked(evt);
+            }
+        });
 
         deleteBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         deleteBtn.setText("DELETE");
+        deleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteBtnMouseClicked(evt);
+            }
+        });
 
         typeBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        typeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "auditor", "manager", "purchase", "control", "customer", "admin" }));
 
         userViewLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         userViewLabel.setForeground(new java.awt.Color(0, 0, 0));
         userViewLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userViewLabel.setText("USER  MANAGEMENT");
+
+        idTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        idTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTxtActionPerformed(evt);
+            }
+        });
+
+        nameTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        nameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout rigthPanelLayout = new javax.swing.GroupLayout(rigthPanel);
         rigthPanel.setLayout(rigthPanelLayout);
@@ -215,7 +242,7 @@ public class AdminSetting extends javax.swing.JFrame {
                             .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(rigthPanelLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,15 +269,15 @@ public class AdminSetting extends javax.swing.JFrame {
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
-                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -260,34 +287,39 @@ public class AdminSetting extends javax.swing.JFrame {
                     .addComponent(updateBtn)
                     .addComponent(clearBtn)
                     .addComponent(deleteBtn))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NAME", "TYPE", "MAIL", "PASS"
+                "NAME", "MAIL", "PASS", "CREATE_TIME", "ID", "TYPE"
             }
         ));
+        usersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersTableMouseClicked(evt);
+            }
+        });
         usersTablePanel.setViewportView(usersTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -318,62 +350,106 @@ public class AdminSetting extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameTxtActionPerformed
-
-    private void idTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTxtActionPerformed
-
     private void mailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mailTxtActionPerformed
 
     private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
-   // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_passTxtActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        // TODO add your handling code here:
-                // TODO add your handling code here:
-                new Login().setVisible(true);
+        new Login().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_exitBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminSetting.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminSetting.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminSetting.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminSetting.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void idTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTxtActionPerformed
 
-        /* Create and display the form */
+    private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTxtActionPerformed
+
+    //Добавляем нового пользователя если нет совпадений
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+        // TODO add your handling code here:
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        if (wwDB.validNewUser(idTxt.getText(), nameTxt.getText())) {
+                wwDB.addData();
+                JOptionPane.showMessageDialog(this, "Пользователь успешно добавлен");
+                udateTable();
+        } else {
+            JOptionPane.showMessageDialog(this, "Пользователь с таким ID или именем уже существует");
+        }
+
+    }//GEN-LAST:event_addBtnMouseClicked
+
+    //Удаляем выбранного пользователя
+    private void deleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseClicked
+        // TODO add your handling code here:
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        if (idTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Выбирете пользователя, который будет удален");
+        } else {
+                wwDB.delData(idTxt.getText());
+                JOptionPane.showMessageDialog(this, "Пользователь успешно удален");
+                udateTable();
+        }
+    }//GEN-LAST:event_deleteBtnMouseClicked
+
+    //Выбор пользователя
+    private void usersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) usersTable.getModel();
+        int myindex = usersTable.getSelectedRow();
+        nameTxt.setText(model.getValueAt(myindex, 0).toString());
+        mailTxt.setText(model.getValueAt(myindex, 1).toString());
+        passTxt.setText(model.getValueAt(myindex, 2).toString());
+        idTxt.setText(model.getValueAt(myindex, 4).toString());
+        typeBox.setSelectedItem(model.getValueAt(myindex, 5).toString());
+    }//GEN-LAST:event_usersTableMouseClicked
+
+    //Очистка полей
+    private void clearBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseClicked
+        // TODO add your handling code here:
+        nameTxt.setText("");
+        mailTxt.setText("");
+        passTxt.setText("");
+        idTxt.setText("");
+        typeBox.setSelectedItem(typeBox.getItemAt(0));
+    }//GEN-LAST:event_clearBtnMouseClicked
+
+    //Обновдение данных
+    private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        // TODO add your handling code here:     
+        if (idTxt.getText().isEmpty() || nameTxt.getText().isEmpty() || mailTxt.getText().isEmpty() || passTxt.getText().isEmpty() || typeBox.getItemAt(0).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Проверьте поля");
+        } else {
+            WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+            wwDB.updateData();
+            JOptionPane.showMessageDialog(this, "Данные успешно обновлены");
+            udateTable();
+        }
+        
+    }//GEN-LAST:event_updateBtnMouseClicked
+
+    public void start() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AdminSetting().setVisible(true);
             }
         });
+    }
+
+    //Обновление данных в таблице
+    private void udateTable() {
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        try {
+            usersTable.setModel(DbUtils.resultSetToTableModel(wwDB.SelectTab("USER")));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminSetting.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
