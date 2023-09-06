@@ -469,9 +469,6 @@ public class CustomerView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sadCodeTxtActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
