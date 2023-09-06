@@ -121,6 +121,9 @@ public class Hello_menu extends javax.swing.JFrame {
         Hello_menu Mysplash = new Hello_menu();
         Mysplash.setVisible(true);
     
+        //Проверяем есть ли администратор в базе
+        //Если нет пользователь добавится автоматически
+        // + Добавить проверку подключения к БД
             if (new ConnectDb().firstConnect()) {
                 try {
                     for (int i = 0; i <= 100; i++) {
