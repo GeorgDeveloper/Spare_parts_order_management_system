@@ -6,6 +6,7 @@
 package view;
 
 import conect.ConnectDb;
+import conect.StartFirstProg;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -233,9 +234,9 @@ public class Login extends javax.swing.JFrame {
 
     //Проверка пользователя на валидность и открытие по типу
     public void entrance() {
-        ConnectDb con = new ConnectDb();
-        String userType = con.validUser(userTxt.getText(), passwordTxt.getText());
-        if (con.isHasNext()) {
+        StartFirstProg stfp = new StartFirstProg();
+        String userType = stfp.validUser(userTxt.getText(), passwordTxt.getText());
+        if (stfp.isHasNext()) {
             switch (userType) {
                 case ("admin"):
                     new AdminSetting().start();
