@@ -18,6 +18,7 @@ import net.proteanit.sql.DbUtils;
 /**
  *
  * @author Егор
+ * Окно взаимодействия с базой пользователей
  */
 public class AdminSetting extends javax.swing.JFrame {
 
@@ -420,7 +421,7 @@ public class AdminSetting extends javax.swing.JFrame {
         typeBox.setSelectedItem(typeBox.getItemAt(0));
     }//GEN-LAST:event_clearBtnMouseClicked
 
-    //Обновдение данных
+    //Обновдение данных о пользователе
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
         // TODO add your handling code here:     
         if (idTxt.getText().isEmpty() || nameTxt.getText().isEmpty() || mailTxt.getText().isEmpty() || passTxt.getText().isEmpty() || typeBox.getItemAt(0).isEmpty()) {
