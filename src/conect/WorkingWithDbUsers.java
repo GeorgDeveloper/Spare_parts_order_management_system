@@ -20,6 +20,7 @@ import net.proteanit.sql.DbUtils;
 /**
  *
  * @author Егор
+ * Обработка запросов к базе пользователей
  */
 public class WorkingWithDbUsers implements ProcessingTables {
 
