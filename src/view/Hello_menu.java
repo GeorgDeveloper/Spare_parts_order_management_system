@@ -6,6 +6,7 @@
 package view;
 
 import conect.ConnectDb;
+import conect.StartFirstProg;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,7 @@ public class Hello_menu extends javax.swing.JFrame {
      */
     public Hello_menu() {
         initComponents();
+        
     }
 
     /**
@@ -118,13 +120,14 @@ public class Hello_menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void start() throws SQLException {
+        ConnectDb con = new ConnectDb();
         Hello_menu Mysplash = new Hello_menu();
         Mysplash.setVisible(true);
     
         //Проверяем есть ли администратор в базе
         //Если нет пользователь добавится автоматически
         // + Добавить проверку подключения к БД
-            if (new ConnectDb().firstConnect()) {
+            if (new StartFirstProg().firstConnect()) {
                 try {
                     for (int i = 0; i <= 100; i++) {
                         Thread.sleep(40);
