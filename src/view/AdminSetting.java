@@ -62,6 +62,8 @@ public class AdminSetting extends javax.swing.JFrame {
         userViewLabel = new javax.swing.JLabel();
         idTxt = new javax.swing.JTextField();
         nameTxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        fullNameTxt = new javax.swing.JTextField();
         usersTablePanel = new javax.swing.JScrollPane();
         usersTable = new javax.swing.JTable();
 
@@ -70,6 +72,7 @@ public class AdminSetting extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(1024, 768));
         setResizable(false);
+        setSize(new java.awt.Dimension(1024, 768));
 
         leftPanel.setBackground(new java.awt.Color(0, 0, 0));
         leftPanel.setPreferredSize(new java.awt.Dimension(200, 768));
@@ -156,7 +159,7 @@ public class AdminSetting extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Password");
+        jLabel6.setText("Full Name");
 
         passTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         passTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -219,12 +222,23 @@ public class AdminSetting extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Password");
+
+        fullNameTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        fullNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullNameTxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout rigthPanelLayout = new javax.swing.GroupLayout(rigthPanel);
         rigthPanel.setLayout(rigthPanelLayout);
         rigthPanelLayout.setHorizontalGroup(
             rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rigthPanelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(rigthPanelLayout.createSequentialGroup()
                         .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,29 +258,34 @@ public class AdminSetting extends javax.swing.JFrame {
                                 .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(rigthPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(rigthPanelLayout.createSequentialGroup()
-                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(119, 119, 119)
-                            .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(52, 52, 52))
+                            .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(rigthPanelLayout.createSequentialGroup()
+                                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(119, 119, 119)
+                                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fullNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(rigthPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
             .addComponent(userViewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         rigthPanelLayout.setVerticalGroup(
             rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rigthPanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(userViewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
@@ -276,13 +295,15 @@ public class AdminSetting extends javax.swing.JFrame {
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel6)
-                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(153, 153, 153)
+                    .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
                     .addComponent(updateBtn)
@@ -333,7 +354,7 @@ public class AdminSetting extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rigthPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(usersTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(24, Short.MAX_VALUE))))
         );
@@ -344,7 +365,7 @@ public class AdminSetting extends javax.swing.JFrame {
                 .addComponent(rigthPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usersTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -375,7 +396,7 @@ public class AdminSetting extends javax.swing.JFrame {
     //Добавляем нового пользователя если нет совпадений
     private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
         // TODO add your handling code here:
-        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString(), fullNameTxt.getText());
         if (wwDB.validNewUser(idTxt.getText(), nameTxt.getText())) {
                 wwDB.addData();
                 JOptionPane.showMessageDialog(this, "Пользователь успешно добавлен");
@@ -389,7 +410,7 @@ public class AdminSetting extends javax.swing.JFrame {
     //Удаляем выбранного пользователя
     private void deleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseClicked
         // TODO add your handling code here:
-        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString(), fullNameTxt.getText());
         if (idTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Выбирете пользователя, который будет удален");
         } else {
@@ -409,6 +430,7 @@ public class AdminSetting extends javax.swing.JFrame {
         passTxt.setText(model.getValueAt(myindex, 2).toString());
         idTxt.setText(model.getValueAt(myindex, 4).toString());
         typeBox.setSelectedItem(model.getValueAt(myindex, 5).toString());
+        fullNameTxt.setText(model.getValueAt(myindex, 6).toString());
     }//GEN-LAST:event_usersTableMouseClicked
 
     //Очистка полей
@@ -419,6 +441,7 @@ public class AdminSetting extends javax.swing.JFrame {
         passTxt.setText("");
         idTxt.setText("");
         typeBox.setSelectedItem(typeBox.getItemAt(0));
+        fullNameTxt.setText("");
     }//GEN-LAST:event_clearBtnMouseClicked
 
     //Обновдение данных о пользователе
@@ -427,13 +450,17 @@ public class AdminSetting extends javax.swing.JFrame {
         if (idTxt.getText().isEmpty() || nameTxt.getText().isEmpty() || mailTxt.getText().isEmpty() || passTxt.getText().isEmpty() || typeBox.getItemAt(0).isEmpty()) {
             JOptionPane.showMessageDialog(this, "Проверьте поля");
         } else {
-            WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+            WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString(), fullNameTxt.getText());
             wwDB.updateData();
             JOptionPane.showMessageDialog(this, "Данные успешно обновлены");
             udateTable();
         }
         
     }//GEN-LAST:event_updateBtnMouseClicked
+
+    private void fullNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullNameTxtActionPerformed
 
     public void start() {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -445,7 +472,7 @@ public class AdminSetting extends javax.swing.JFrame {
 
     //Обновление данных в таблице
     private void udateTable() {
-        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString());
+        WorkingWithDbUsers wwDB = new WorkingWithDbUsers(nameTxt.getText(), mailTxt.getText(), passTxt.getText(), idTxt.getText(), typeBox.getSelectedItem().toString(), fullNameTxt.getText());
         try {
             usersTable.setModel(DbUtils.resultSetToTableModel(wwDB.SelectTab("USER")));
         } catch (SQLException ex) {
@@ -458,12 +485,14 @@ public class AdminSetting extends javax.swing.JFrame {
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton exitBtn;
+    private javax.swing.JTextField fullNameTxt;
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JTextField mailTxt;
     private javax.swing.JTextField nameTxt;
