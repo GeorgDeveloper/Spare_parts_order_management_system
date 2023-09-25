@@ -39,18 +39,12 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         sadCodeTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        stockTxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        quantityTxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        nameMaterTxt = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        priceTxt = new javax.swing.JTextField();
-        unitBox = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        regionBox = new javax.swing.JComboBox<>();
         addBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,10 +53,25 @@ public class CustomerView extends javax.swing.JFrame {
         helpBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         commentsTxt = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        nameMaterTxt = new javax.swing.JTextField();
+        stockTxt = new javax.swing.JTextField();
+        manufacturerTxt = new javax.swing.JTextField();
+        quantityTxt = new javax.swing.JTextField();
+        priceTxt = new javax.swing.JTextField();
+        unitBox = new javax.swing.JComboBox<>();
+        classificationBox = new javax.swing.JComboBox<>();
+        priorityBox = new javax.swing.JComboBox<>();
+        regionBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1024, 768));
 
         leftPanel.setBackground(new java.awt.Color(0, 0, 0));
         leftPanel.setPreferredSize(new java.awt.Dimension(200, 768));
@@ -176,7 +185,6 @@ public class CustomerView extends javax.swing.JFrame {
         sadCodeTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         sadCodeTxt.setMaximumSize(new java.awt.Dimension(4, 20));
         sadCodeTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        sadCodeTxt.setPreferredSize(new java.awt.Dimension(55, 20));
         sadCodeTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sadCodeTxtActionPerformed(evt);
@@ -187,29 +195,9 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("НАЛИЧИЕ НА СКЛАДЕ");
 
-        stockTxt.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        stockTxt.setMaximumSize(new java.awt.Dimension(4, 20));
-        stockTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        stockTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        stockTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stockTxtActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("КОЛИЧЕСТВО");
-
-        quantityTxt.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        quantityTxt.setMaximumSize(new java.awt.Dimension(4, 20));
-        quantityTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        quantityTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        quantityTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quantityTxtActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -219,32 +207,9 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("НАИМЕНОВАНИЕ МАТЕРИАЛА");
 
-        nameMaterTxt.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        nameMaterTxt.setMaximumSize(new java.awt.Dimension(4, 20));
-        nameMaterTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        nameMaterTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        nameMaterTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameMaterTxtActionPerformed(evt);
-            }
-        });
-
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("ЦЕНА ЗА ЕДИНИЦУ");
-
-        priceTxt.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        priceTxt.setMaximumSize(new java.awt.Dimension(4, 20));
-        priceTxt.setMinimumSize(new java.awt.Dimension(4, 20));
-        priceTxt.setPreferredSize(new java.awt.Dimension(55, 20));
-        priceTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceTxtActionPerformed(evt);
-            }
-        });
-
-        unitBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        unitBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -253,9 +218,6 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("СТАНОК / УЧАСТОК");
-
-        regionBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        regionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         addBtn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         addBtn.setText("ДОБАВИТЬ");
@@ -305,26 +267,102 @@ public class CustomerView extends javax.swing.JFrame {
         commentsTxt.setRows(5);
         jScrollPane2.setViewportView(commentsTxt);
 
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("ПРОИЗВОДИТЕЛЬ");
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("КЛАССИФИКАЦИЯ");
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("ПРИОРИТЕТ");
+
+        nameMaterTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        nameMaterTxt.setMaximumSize(new java.awt.Dimension(4, 20));
+        nameMaterTxt.setMinimumSize(new java.awt.Dimension(4, 20));
+        nameMaterTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameMaterTxtActionPerformed(evt);
+            }
+        });
+
+        stockTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        stockTxt.setMaximumSize(new java.awt.Dimension(4, 20));
+        stockTxt.setMinimumSize(new java.awt.Dimension(4, 20));
+        stockTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockTxtActionPerformed(evt);
+            }
+        });
+
+        manufacturerTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        manufacturerTxt.setMaximumSize(new java.awt.Dimension(4, 20));
+        manufacturerTxt.setMinimumSize(new java.awt.Dimension(4, 20));
+        manufacturerTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manufacturerTxtActionPerformed(evt);
+            }
+        });
+
+        quantityTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        quantityTxt.setMaximumSize(new java.awt.Dimension(4, 20));
+        quantityTxt.setMinimumSize(new java.awt.Dimension(4, 20));
+        quantityTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityTxtActionPerformed(evt);
+            }
+        });
+
+        priceTxt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        priceTxt.setMaximumSize(new java.awt.Dimension(4, 20));
+        priceTxt.setMinimumSize(new java.awt.Dimension(4, 20));
+        priceTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTxtActionPerformed(evt);
+            }
+        });
+
+        unitBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        unitBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Единица услуги", "Пакет", "Бочка", "Бобина", "Коробка", "Бутылка", "Канистра", "Килограмм", "Литр", "Погонный метр", "Метр", "Квадратный метр", "Кубический метр", "Паллета", "Штука", "Рулон", "Набор", "Тонна" }));
+        unitBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitBoxActionPerformed(evt);
+            }
+        });
+
+        classificationBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        classificationBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Гидравлика", "ГСМ", "Запчасть", "Ленты", "Подшипники", "Ремни", "Электрика", "Электронника", "Прочее" }));
+
+        priorityBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        priorityBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Высокий", "Обычный", "Низкий" }));
+
+        regionBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        regionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VZ0150 Резиносмешение", "VZ0200 Каландры", "VZ0320 Экструдеры легкие", "VZ0420 Бортовые крылья", "VZ0520 Резка текстильного корда", "VZ0522 Резка металлокорда", "VZ0620 Гермослой и дублировка", "VZ0820 Сборка", "VZ0920 Вулканизация", "VZ1200 Общепроизводственные", "VZ1500 Крупногабаритные шины", "VZ2220 Контроль и ремонт", "VZ2300 Качество", "VZ3010 Электрооборудование", "VZ3020 Котельная", "VZ3040 Энергообеспечение", "VZ4000 Расходные материалы", "VZ6000 R&D", "VZ7500 Ошиповка" }));
+
         javax.swing.GroupLayout rigthPanelLayout = new javax.swing.GroupLayout(rigthPanel);
         rigthPanel.setLayout(rigthPanelLayout);
         rigthPanelLayout.setHorizontalGroup(
             rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rigthPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addComponent(viewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(rigthPanelLayout.createSequentialGroup()
                         .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sadCodeTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(unitBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(regionBox, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(loadBtn))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loadBtn)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(sadCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(unitBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(manufacturerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(regionBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(rigthPanelLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
@@ -333,79 +371,103 @@ public class CustomerView extends javax.swing.JFrame {
                                 .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(rigthPanelLayout.createSequentialGroup()
+                            .addGroup(rigthPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
                                         .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nameMaterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel9))
-                                        .addGap(74, 74, 74)
-                                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(stockTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2))))))
-                .addGap(24, 24, 24))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
+                                                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel9)
+                                                    .addComponent(nameMaterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(74, 74, 74))
+                                            .addGroup(rigthPanelLayout.createSequentialGroup()
+                                                .addGap(85, 85, 85)
+                                                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(classificationBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(82, 82, 82)))
+                                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(priorityBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         rigthPanelLayout.setVerticalGroup(
             rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rigthPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(viewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rigthPanelLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(rigthPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sadCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(unitBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(rigthPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sadCodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(manufacturerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(11, 11, 11)
                         .addComponent(nameMaterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(11, 11, 11)
+                        .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rigthPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(rigthPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(7, 7, 7)
+                                .addComponent(unitBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(regionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rigthPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(priorityBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(153, 153, 153)))
+                        .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(helpBtn)
+                            .addComponent(loadBtn)
+                            .addComponent(addBtn)
+                            .addComponent(deleteBtn))
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(rigthPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(7, 7, 7)
+                        .addComponent(classificationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
-                        .addGap(1, 1, 1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(rigthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(helpBtn)
-                    .addComponent(loadBtn)
-                    .addComponent(addBtn)
-                    .addComponent(deleteBtn))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -424,6 +486,7 @@ public class CustomerView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
@@ -449,25 +512,33 @@ public class CustomerView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_helpBtnActionPerformed
 
-    private void priceTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTxtActionPerformed
+    private void sadCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sadCodeTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_priceTxtActionPerformed
+    }//GEN-LAST:event_sadCodeTxtActionPerformed
 
     private void nameMaterTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameMaterTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameMaterTxtActionPerformed
 
-    private void quantityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantityTxtActionPerformed
-
     private void stockTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stockTxtActionPerformed
 
-    private void sadCodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sadCodeTxtActionPerformed
+    private void manufacturerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturerTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sadCodeTxtActionPerformed
+    }//GEN-LAST:event_manufacturerTxtActionPerformed
+
+    private void quantityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTxtActionPerformed
+
+    private void priceTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTxtActionPerformed
+
+    private void unitBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unitBoxActionPerformed
 
     public static void start() {
         /* Set the Nimbus look and feel */
@@ -505,6 +576,7 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JButton applicationCodingBtn;
     private javax.swing.JTable applicationTable;
+    private javax.swing.JComboBox<String> classificationBox;
     private javax.swing.JTextArea commentsTxt;
     private javax.swing.JButton createRequestBtn;
     private javax.swing.JButton deleteBtn;
@@ -513,6 +585,9 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -523,9 +598,11 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JPanel labelPanel;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JButton loadBtn;
+    private javax.swing.JTextField manufacturerTxt;
     private javax.swing.JTextField nameMaterTxt;
     private javax.swing.JButton orderStatusBtn;
     private javax.swing.JTextField priceTxt;
+    private javax.swing.JComboBox<String> priorityBox;
     private javax.swing.JLabel progLabel;
     private javax.swing.JTextField quantityTxt;
     private javax.swing.JComboBox<String> regionBox;
